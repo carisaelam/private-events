@@ -14,3 +14,19 @@ Created Events for <%= @user.email %>
   <p>No events created yet.</p>
 <% end %>
   
+
+Attending Events for <%= @user.email %>
+
+<% if @user.attended_events.any? %>
+  <ul>
+    <% @user.attended_events.each do |event| %>
+      <li>
+        <p><strong>Title: </strong><%= event.title %> </p>
+        <p><strong>Description: </strong><%= event.description %> </p>
+        <p><strong>Date: </strong><%= event.date %> </p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No events attended yet.</p>
+<% end %>
