@@ -12,6 +12,22 @@
 <p>
   <%= @event.date %>
 </p>
+
+<br>
+
+<h2>Sign-up for Event</h2>
+<%= button_to 'Sign Up', event_event_attendees_path(@event) %>
+<%= button_to 'Leave Event', event_event_attendee_path(@event), method: :delete %>
+
+<h3>Attendees:</h3>
+<% if @event.attendees.any? %>
+  <% @event.attendees.each do |attendee| %>
+    <%= attendee.email %>
+  <% end %>
+
+<% else %>
+  <p>No attendees yet :(</p>
+<% end %>
   
 
 

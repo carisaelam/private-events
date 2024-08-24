@@ -1,3 +1,4 @@
+
 ActiveRecord::Schema[7.2].define(version: 2024_08_24_185140) do
   create_table "event_attendees", force: :cascade do |t|
     t.integer "attendee_id"
