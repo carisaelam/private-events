@@ -1,13 +1,28 @@
-<h1>Events!</h1>
+<h1>All Events!</h1>
 
 <% if @events.any? %>
+  
   <% @events.each do |event| %>
     <%= link_to event.title, event_path(event.id)%>
     <br>
   <% end %>
+
+
 <% else %>
   <p>No events yet!</p>
 <% end %>
 
 
+<h2>Past Events:</h2>
+<% @events.where('date < ?', Date.current).each do |event| %>
+  <%= link_to event.title, event_path(event.id)%>
+<% end %>
 
+<h2>Future Events:</h2>
+<% @events.where('date >= ?', Date.current).each do |event| %>
+  <%= link_to event.title, event_path(event.id)%>
+  <br>
+<% end %>
+
+
+<br>
